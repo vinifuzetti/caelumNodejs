@@ -19,8 +19,8 @@ module.exports = function(){
 	});
 
 	//validador de dados inputados
-	app.use(require('express-validator'));
-	
+	app.use(require('express-validator')());
+
 	//rotas usadas
 	require('../routes/produtos')(app);
 	return app;

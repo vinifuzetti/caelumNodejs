@@ -33,6 +33,9 @@ module.exports = function (app){
 	app.post('/produtos', function(req, res){
 		var livro = req.body;
 
+		req.assert('titulo', 'Titulo é obrigatório').notEmpty();
+		req.assert('preco', 'Preço é obrigatório um numero').isFloat();
+
 		var dao = new ProdutoDaoMaluco(app.get('connection'));
 
 		dao.salva(livro, function(errors){
