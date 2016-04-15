@@ -14,5 +14,9 @@
     "mysql": "~2.10.2",
     "body-parser": "~1.15.0",
     "express-validator": "~2.20.3"
+  },
+  "devDependencies": {
+    "mocha": "~2.4.5",
+    "supertest": "~1.2.0"
   }
 }

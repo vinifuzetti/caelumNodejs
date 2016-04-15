@@ -38,14 +38,18 @@ module.exports = function (app){
 
 		var errors = req.validationErrors();
 		if(errors){
-			res.render('formCadastroProd', {errs: errors, livro: livro});
-			res.status(400);
+			res.status(400).render('formCadastroProd', {errs: errors, livro: livro});
 			return;
 		}
 
 		var dao = new ProdutoDaoMaluco(app.get('connection'));
 
 		dao.salva(livro, function(errors){
+			if(errors){
+				res.status(500);
+				res.render('errors/500', {erroServer: errors});
+				return;
+			}
 			res.redirect('/produtos');
 		});
 	});
