@@ -1,0 +1,29 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+</head>
+<body>
+	<h1 align="center">Listagem de Produtos</h1><br><br>
+	<table border="1" style="width:50%">
+		<tbody>
+			<tr align="center">
+				<td><b> Titulo </b></td>
+				<td><b> Descrição </b></td>
+				<td><b> Preço </b></td>
+			</tr>
+			<%for (var i=0; i<produtos.length; i++){%>
+			<tr align="center">
+				<td><%=produtos[i].titulo%></td>
+				<td><%=produtos[i].descricao%></td>
+				<td><%=produtos[i].preco%></td>
+			</tr>	
+			<%}%>
+
+		</tbody>
+	</table>
+	<br></br>
+	<button type="button" onclick="location.href='http://localhost:3000/produtos/cadastroProduto';" value="Cadastrar Produto">Cadastrar Produto
+	</button>
+</body>
+</html>
