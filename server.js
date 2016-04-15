@@ -6,3 +6,8 @@ var server = app.listen(3000, function(){
 	//console.log(app); //mostra o que tem dentro do app
 	
 });
+
+var socketIo = require('socket.io');
+var io = socketIo(server);
+
+app.set('io', io);

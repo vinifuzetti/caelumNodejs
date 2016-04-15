@@ -14,4 +14,12 @@ produtoDao.prototype.salva = function(produtoToInsert, callback){
 	this._connection.query('insert into produtos set ?', produtoToInsert, callback);
 }
 
+produtoDao.prototype.promocao = function(produtoToAlter, callback){
+	this._connection.query('update produtos set preco = (preco - (0.1*preco)) where id = ?', produtoToAlter.id, callback);
+}
+
+produtoDao.prototype.selectLivro = function(produto, callback){
+	this._connection.query('select titulo from produtos where id = ?', produto.id, callback);
+}
+
 module.exports = produtoDao;

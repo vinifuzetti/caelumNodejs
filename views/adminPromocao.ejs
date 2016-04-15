@@ -1,0 +1,17 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+</head>
+<body>
+	<h1 align="center">Promocao de Livros</h1><br><br>
+	<form action="/admin/promocao" method="POST">
+		<select name="id">
+			<%for (var i=0; i<produtos.length; i++){%>
+			<option value="<%=produtos[i].id%>"><%=produtos[i].titulo%></option>
+			<%}%>
+		</select>
+		<input type="submit" align="center" value="Promover Produto">
+	</form>
+</body>
+</html>

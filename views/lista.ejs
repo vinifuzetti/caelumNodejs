@@ -25,5 +25,14 @@
 	<br></br>
 	<button type="button" onclick="location.href='http://localhost:3000/produtos/cadastroProduto';" value="Cadastrar Produto">Cadastrar Produto
 	</button>
+
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+		var socket = io();
+		socket.on('promocaoLivro', function(data){
+			console.log('Promocao!!!');
+			alert('** Promoção de Livro :' + data + ', caiu 10%!');
+		});
+	</script>
 </body>
 </html>

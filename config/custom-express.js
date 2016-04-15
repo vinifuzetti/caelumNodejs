@@ -23,5 +23,7 @@ module.exports = function(){
 
 	//rotas usadas
 	require('../routes/produtos')(app);
+	require('../routes/admin/promocao')(app);
+	
 	return app;
 };
