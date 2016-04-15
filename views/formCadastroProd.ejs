@@ -4,14 +4,21 @@
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
 </head>
 <body>
+	<ul class="errors">
+		<%if(locals.errs) {%>
+			<%errs.forEach(function(erro){%>
+				<li><%=erro.msg;%></li>
+			<%});%>
+		<%}%>
+	</ul>
 	<h1 align="center">Cadastro de Livro</h1><br><br>
 	<form action="/produtos" method="POST">
 		<label for="titulo">Título</label>
-		<input name="titulo">
+		<input name="titulo" value="<%=livro.titulo%>">
 		<label for="descricao">Descrição</label>
 		<textarea name="descricao"></textarea>
 		<label for="preco">Preço</label>
-		<input name="preco"><br><br>
+		<input name="preco" value="<%=livro.preco%>"><br><br>
 		<input type="submit" value="Cadastrar">
 	</form>
 </body>

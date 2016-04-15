@@ -27,7 +27,7 @@ module.exports = function (app){
 	});
 
 	app.get('/produtos/cadastroProduto', function(req, res){
-		res.render('formCadastroProd');
+		res.render('formCadastroProd', {livro: {}});
 	});
 
 	app.post('/produtos', function(req, res){
@@ -35,6 +35,13 @@ module.exports = function (app){
 
 		req.assert('titulo', 'Titulo é obrigatório').notEmpty();
 		req.assert('preco', 'Preço é obrigatório um numero').isFloat();
+
+		var errors = req.validationErrors();
+		if(errors){
+			res.render('formCadastroProd', {errs: errors, livro: livro});
+			res.status(400);
+			return;
+		}
 
 		var dao = new ProdutoDaoMaluco(app.get('connection'));
 
